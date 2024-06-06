@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 const Review = ({
   params,
 }: {
@@ -6,6 +8,9 @@ const Review = ({
     reviewId: string;
   };
 }) => {
+  if (parseInt(params.reviewId) > 1000) {
+    notFound();
+  }
   return (
     <h2>
       Review {params.reviewId} of product {params.productId}

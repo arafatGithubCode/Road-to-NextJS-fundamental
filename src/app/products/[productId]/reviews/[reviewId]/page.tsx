@@ -8,6 +8,10 @@ type Props = {
   };
 };
 
+const getRandomInt = (count: number) => {
+  return Math.floor(Math.random() * count);
+};
+
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
@@ -22,6 +26,10 @@ export const generateMetadata = async ({
 };
 
 const Review = ({ params }: Props) => {
+  const random = getRandomInt(2);
+  if (random === 1) {
+    throw new Error("Error loading reviews");
+  }
   if (parseInt(params.reviewId) > 1000) {
     notFound();
   }

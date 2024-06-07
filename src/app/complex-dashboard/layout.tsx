@@ -3,6 +3,7 @@ type Props = {
   user: React.ReactNode;
   notification: React.ReactNode;
   revenue: React.ReactNode;
+  login: React.ReactNode;
 };
 
 export default function DashboardLayout({
@@ -10,8 +11,10 @@ export default function DashboardLayout({
   user,
   notification,
   revenue,
+  login,
 }: Props) {
-  return (
+  const isLoggedIn = false;
+  return isLoggedIn ? (
     <div>
       <div>{children}</div>
       <div style={{ display: "flex" }}>
@@ -22,5 +25,7 @@ export default function DashboardLayout({
         <div style={{ display: "flex", flex: 1 }}>{notification}</div>
       </div>
     </div>
+  ) : (
+    login
   );
 }

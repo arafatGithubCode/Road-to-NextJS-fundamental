@@ -26,10 +26,10 @@ export const generateMetadata = async ({
 };
 
 const Review = ({ params }: Props) => {
-  const random = getRandomInt(2);
-  if (random === 1) {
-    throw new Error("Error loading reviews");
-  }
+  // const random = getRandomInt(2);
+  // if (random === 1) {
+  //   throw new Error("Error loading reviews");
+  // }
   if (parseInt(params.reviewId) > 1000) {
     notFound();
   }

@@ -1,9 +1,3 @@
-const Profile = () => {
-  return (
-    <div>
-      <h1>Welcome to profile route!</h1>
-    </div>
-  );
-};
-
-export default Profile;
+export default function ProfilePage() {
+  return <h2>Profile page</h2>;
+}

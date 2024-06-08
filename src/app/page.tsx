@@ -1,13 +1,9 @@
-import Link from "next/link";
+import Image from "next/image";
 
-const Home = () => {
+export default function Home() {
   return (
-    <div>
-      <h1>welcome to home!</h1>
-      <Link href="/blog">Blog</Link>
-      <Link href="/products">-products</Link>
-    </div>
+    <main>
+      <h1>I&apos;m the Next.js but who&apos;r you?</h1>
+    </main>
   );
-};
-
-export default Home;
+}

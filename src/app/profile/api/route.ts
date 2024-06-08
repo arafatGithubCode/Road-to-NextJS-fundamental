@@ -1,3 +1,15 @@
-export async function GET() {
-  return new Response("Profile API Data (GET)");
+import { headers } from "next/headers";
+import { type NextRequest } from "next/server";
+
+export async function GET(request: NextRequest) {
+  const requestHeaders = new Headers(request.headers);
+  const headerList = headers();
+  console.log(requestHeaders.get("Authorization"));
+  console.log(headerList.get("Authorization"));
+
+  return new Response("<h1></h1>Profile API Data (GET)</h1>", {
+    headers: {
+      "Content-Type": "text/html",
+    },
+  });
 }

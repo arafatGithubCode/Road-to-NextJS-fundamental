@@ -1,12 +1,14 @@
-import { NextRequest } from "next/server";
+import { redirect } from "next/navigation";
 import { comments } from "../data";
 
-export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const query = searchParams.get("query");
-  const filteredComments = query
-    ? comments.filter((comment) => comment.text.includes(query))
-    : comments;
-
-  return Response.json(filteredComments);
-}
+export const GET = (
+  request: Request,
+  { params }: { params: { id: string } }
+) => {
+  const id = parseInt(params.id);
+  if (id > comments.length) {
+    redirect("/comments");
+  }
+  const comment = comments.find((comment) => comment.id === id);
+  return Response.json(comment);
+};

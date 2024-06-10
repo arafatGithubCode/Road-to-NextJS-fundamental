@@ -1,3 +1,5 @@
+export const fetchCache = "default-cache";
+
 type Product = {
   id: number;
   price: number;

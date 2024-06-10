@@ -1,5 +1,7 @@
-export const fetchCache = "default-cache";
+import { cookies } from "next/headers";
 
+export const fetchCache = "default-cache";
+export const revalidate = 10;
 type Product = {
   id: number;
   price: number;
@@ -7,8 +9,14 @@ type Product = {
   description: string;
 };
 export default async function page() {
+  // const detailsRes = await fetch("http://localhost:3001/products/1");
+  // const details = await detailsRes.json();
+
+  // const theme = cookies().get("theme"); // after dynamic func caching will be stopped
+
   const response = await fetch("http://localhost:3001/products");
   const products = await response.json();
+
   return (
     <div className="flex gap-5">
       {products &&

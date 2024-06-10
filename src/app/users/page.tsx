@@ -6,8 +6,9 @@ type User = {
   phone: string;
 };
 
-const UsersPage = async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+export default async function UsersPage() {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  const response = await fetch("https://jsonplaceholder.typicode.com/users0");
   const users = await response.json();
 
   return (
@@ -28,6 +29,4 @@ const UsersPage = async () => {
       </div>
     </div>
   );
-};
-
-export default UsersPage;
+}

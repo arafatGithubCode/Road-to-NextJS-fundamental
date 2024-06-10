@@ -1,4 +1,5 @@
 import ImageSlider from "@/components/ImageSlider";
+import { clientSideFunction } from "@/utils/client-utils";
 import { serverSideFunction } from "@/utils/server-utils";
 
 export default function ServerRoutePage() {
